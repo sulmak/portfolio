@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md. Atikur Rahman Mridha — .NET &amp; Angular Developer</title>
+<meta name="description" content="Portfolio of Md. Atikur Rahman Mridha: accounting, HR and library systems built with ASP.NET Core and Angular.">
+<meta property="og:title" content="Md. Atikur Rahman Mridha — .NET &amp; Angular Developer">
+<meta property="og:description" content="Accounting, HR and library systems built with ASP.NET Core and Angular.">
+<meta property="og:image" content="assets/cover-hero.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f241d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23d9a441' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink: #0c1c17;
+    --navy: #14213d;
+    --paper: #f4f1e9;
+    --surface: #fbfaf6;
+    --brass: #b5822a;
+    --brass-hi: #d9a441;
+    --muted: #5b6a62;
+    --line: #d9d5c9;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brass); }
+
+  /* header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(12, 28, 23, .9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .mark { font-family: var(--serif); font-size: 19px; color: #f4efe4; text-decoration: none; letter-spacing: .02em; }
+  .mark span { color: var(--brass-hi); }
+  .nav { display: flex; align-items: center; gap: 26px; }
+  .nav a { color: #c9d4ce; text-decoration: none; font-size: 14px; }
+  .nav a:hover { color: #fff; }
+  .nav .cta { border: 1px solid rgba(217,164,65,.55); color: #f0d9a8; padding: 7px 15px; border-radius: 3px; }
+  .nav .cta:hover { background: rgba(217,164,65,.12); color: #fff; }
+
+  /* hero */
+  .hero { position: relative; color: #f4efe4; background: var(--ink) url("assets/cover-hero.png") center right / cover no-repeat; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,20,16,.96) 0%, rgba(8,20,16,.84) 42%, rgba(8,20,16,.35) 72%, rgba(8,20,16,.18) 100%); }
+  .hero .wrap { position: relative; display: flex; align-items: center; min-height: 620px; padding: 92px 0 84px; }
+  .hero-copy { max-width: 690px; }
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.6vw, 66px); line-height: 1.05; margin: 18px 0 0; letter-spacing: -.01em; }
+  .hero h1 em { font-style: normal; color: var(--brass-hi); }
+  .role { margin: 18px 0 0; font-size: 17px; letter-spacing: .04em; color: #e6dcc6; text-transform: uppercase; }
+  .lede { margin: 20px 0 0; max-width: 560px; font-size: 17px; color: #c9d4ce; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 3px; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+  .btn-primary { background: var(--brass-hi); color: #14201a; }
+  .btn-primary:hover { background: #e7b75c; }
+  .btn-ghost { border: 1px solid rgba(244,239,228,.35); color: #f4efe4; }
+  .btn-ghost:hover { border-color: rgba(244,239,228,.7); background: rgba(255,255,255,.06); }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 46px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14); }
+  .hero-meta div strong { display: block; font-family: var(--serif); font-size: 22px; font-weight: 400; color: #fff; }
+  .hero-meta div span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #93a59b; }
+
+  /* sections */
+  section { padding: 84px 0; }
+  .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  .section-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); margin: 10px 0 0; line-height: 1.15; }
+  .section-head p { max-width: 420px; margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* work */
+  .work { display: grid; gap: 26px; }
+  .project { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+  .project:nth-child(even) .shot { order: 2; }
+  .shot { position: relative; background: var(--navy); min-height: 300px; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; }
+  .project-body { padding: 34px 36px; display: flex; flex-direction: column; }
+  .project-body .kicker { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+  .project-body h3 { font-family: var(--serif); font-weight: 400; font-size: 29px; margin: 9px 0 0; }
+  .project-body p { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+  .project-body ul { margin: 16px 0 0; padding: 0; list-style: none; }
+  .project-body li { position: relative; padding-left: 18px; margin-top: 7px; font-size: 14px; color: #3f4c45; }
+  .project-body li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; background: var(--brass); transform: rotate(45deg); }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+  .chip { font-size: 11.5px; letter-spacing: .03em; color: #3f4c45; background: #ece8dc; border: 1px solid #ded9cb; padding: 3px 9px; border-radius: 20px; }
+  .project-links { margin-top: auto; padding-top: 22px; display: flex; gap: 18px; }
+  .project-links a { font-size: 13.5px; font-weight: 600; text-decoration: none; color: #1f3d33; border-bottom: 1px solid rgba(181,130,42,.5); padding-bottom: 2px; }
+  .project-links a:hover { color: var(--brass); }
+  .print-url { display: none; }
+
+  /* about + skills */
+  .about { background: #ece8dd; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; }
+  .about-copy p { margin: 0 0 16px; color: #3f4c45; font-size: 15.5px; }
+  .about-copy p:last-child { margin-bottom: 0; }
+  .skills { display: grid; gap: 18px; }
+  .skill-group { display: grid; grid-template-columns: 128px 1fr; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid #d5d0c2; }
+  .skill-group:last-child { border-bottom: 0; padding-bottom: 0; }
+  .skill-group h4 { margin: 0; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
+  .skill-group p { margin: 0; font-size: 14.5px; color: #3f4c45; }
+
+  /* contact */
+  .contact { background: var(--ink); color: #f4efe4; padding: 76px 0; }
+  .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 36px; flex-wrap: wrap; }
+  .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.4vw, 40px); margin: 10px 0 8px; }
+  .contact p { margin: 0; color: #a9b9b0; font-size: 15px; }
+  .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  footer { background: #081712; color: #84968c; padding: 26px 0; font-size: 12.5px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: #b9c8bf; text-decoration: none; }
+  footer a:hover { color: #fff; }
+
+  @media (max-width: 900px) {
+    .nav { gap: 14px; }
+    .nav .hide-sm { display: none; }
+    .hero .wrap { min-height: 0; padding: 72px 0 64px; }
+    .project { grid-template-columns: 1fr; }
+    .project:nth-child(even) .shot { order: 0; }
+    .shot { min-height: 220px; }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .section-head { flex-direction: column; align-items: start; }
+  }
+  @media (max-width: 560px) {
+    .wrap { width: calc(100% - 32px); }
+    section { padding: 60px 0; }
+    .project-body { padding: 26px 22px; }
+    .hero-meta { gap: 20px; }
+  }
+
+  /* print / PDF */
+  .print-cover { display: none; }
+  @page { size: A4; margin: 12mm 13mm; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: #fff; }
+    body { font-size: 11pt; }
+    header, .no-print, .hero { display: none !important; }
+    .wrap { width: 100%; }
+    .print-cover { display: block; position: relative; height: 272mm; overflow: hidden; background: var(--ink); break-after: page; }
+    .print-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+    .print-cover::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,20,16,.97) 0%, rgba(8,20,16,.86) 42%, rgba(8,20,16,.32) 74%, rgba(8,20,16,.18) 100%); }
+    .pc-copy { position: absolute; left: 11mm; right: 11mm; bottom: 46mm; color: #f4efe4; }
+    .pc-copy h1 { font-family: var(--serif); font-weight: 400; font-size: 34pt; line-height: 1.06; margin: 7px 0 0; }
+    .pc-role { margin: 9mm 0 0; color: var(--brass-hi); font-size: 10pt; letter-spacing: .12em; text-transform: uppercase; }
+    .pc-lede { max-width: 118mm; margin: 4mm 0 0; color: #c9d4ce; font-size: 10.5pt; }
+    .pc-foot { position: absolute; left: 11mm; right: 11mm; bottom: 12mm; padding-top: 4mm; border-top: 1px solid rgba(255,255,255,.18); color: #a9b9b0; font-size: 8.5pt; }
+    section { padding: 22px 0; }
+    .section-head { margin-bottom: 14px; }
+    .section-head h2 { font-size: 22pt; }
+    .section-head p { display: none; }
+    .work { gap: 14px; }
+    .project { break-inside: avoid; grid-template-columns: 1fr; border-color: #c9c4b7; }
+    .shot { display: block; min-height: 0; height: 38mm; overflow: hidden; background: var(--navy); }
+    .shot img { width: 100%; height: 38mm; object-fit: cover; }
+    .project-body { padding: 14px 16px; }
+    .project-body h3 { font-size: 16pt; }
+    .project-body p, .project-body li { font-size: 9.5pt; }
+    .project-body ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .chips { margin-top: 10px; }
+    .project-links { display: none; }
+    .print-url { display: block; font-size: 8.5pt; color: #5b6a62; margin-top: 4px; }
+    .contact { display: none !important; }
+    .about { background: #fff; border-top: 1px solid var(--line); }
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+    .skill-group { grid-template-columns: 90px 1fr; padding-bottom: 8px; }
+    .contact { background: #fff; color: var(--ink); padding: 20px 0 0; border-top: 2px solid var(--brass); }
+    .contact p { color: var(--muted); }
+    .contact-actions { display: none; }
+    footer { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="no-print">
+  <div class="wrap bar">
+    <a class="mark" href="#top">Atikur <span>Mridha</span></a>
+    <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="print-cover" aria-hidden="true">
+    <img src="assets/cover-hero.png" alt="">
+    <div class="pc-copy">
+      <div class="eyebrow">Portfolio · 2026</div>
+      <h1>Md. Atikur<br>Rahman Mridha</h1>
+      <p class="pc-role">Full-stack developer · .NET &amp; Angular</p>
+      <p class="pc-lede">Accounting, HR and library systems — correct rules, clean data, and interfaces people can use.</p>
+    </div>
+    <div class="pc-foot">© 2026 Md. Atikur Rahman Mridha · sulmak.mridha@gmail.com · github.com/sulmak</div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">Portfolio · 2026</div>
+        <h1>Md. Atikur<br>Rahman <em>Mridha</em></h1>
+        <p class="role">Full-stack developer · .NET &amp; Angular</p>
+        <p class="lede">I build business software that keeps the books balanced, the people paid, and the shelves in order — from relational data models and posting rules to the interfaces people use every day.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">View selected work</a>
+          <a class="btn btn-ghost" href="https://github.com/sulmak" target="_blank" rel="noopener">GitHub &#8599;</a>
+          <a class="btn btn-ghost" href="portfolio.pdf">Download PDF</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>03</strong><span>Business systems</span></div>
+          <div><strong>.NET + Angular</strong><span>End-to-end delivery</span></div>
+          <div><strong>SQL Server · SQLite</strong><span>Relational data</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Selected work</div>
+          <h2>Systems built to be used</h2>
+        </div>
+        <p>Three complete applications covering accounting, human resources and library operations. Each one includes the domain rules, the data model and the interface.</p>
+      </div>
+
+      <div class="work">
+        <article class="project">
+          <div class="shot"><img src="assets/art-accounting.png" alt="Ledgerline accounting system artwork"></div>
+          <div class="project-body">
+            <div class="kicker">Accounting · 2026</div>
+            <h3>Ledgerline</h3>
+            <p>A double-entry accounting system for small businesses: sales, expenses, inventory, payables and receivables, with every transaction posted to a balanced ledger.</p>
+            <ul>
+              <li>Atomic double-entry posting rules</li>
+              <li>Trial balance, income statement and general ledger</li>
+              <li>PDF and Excel report exports by fiscal period</li>
+              <li>Budgets, dashboards and an admin panel</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">ASP.NET Core 8</span><span class="chip">EF Core</span><span class="chip">SQL Server</span><span class="chip">Angular 17</span><span class="chip">REST</span>
+            </div>
+            <div class="print-url">github.com/sulmak/AccountingSystem</div>
+            <div class="project-links">
+              <a href="https://github.com/sulmak/AccountingSystem" target="_blank" rel="noopener">Repository &#8599;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="shot"><img src="assets/art-hrm.png" alt="HRM system artwork"></div>
+          <div class="project-body">
+            <div class="kicker">Human resources · 2026</div>
+            <h3>HRM System</h3>
+            <p>An end-to-end HR platform covering recruitment, leave, attendance and payroll, with rules that reflect real company policy.</p>
+            <ul>
+              <li>Recruitment pipeline from circular to joining</li>
+              <li>Shift-aware attendance, overtime and late deductions</li>
+              <li>Payroll with PF, tax, leave and payslip breakdowns</li>
+              <li>Employee calendar, performance and device punch import</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">ASP.NET Core 8</span><span class="chip">EF Core</span><span class="chip">SQL Server</span><span class="chip">Angular 18</span><span class="chip">REST</span>
+            </div>
+            <div class="print-url">github.com/sulmak/HRM</div>
+            <div class="project-links">
+              <a href="https://github.com/sulmak/HRM" target="_blank" rel="noopener">Repository &#8599;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="shot"><img src="assets/art-library.png" alt="LibraryMS artwork"></div>
+          <div class="project-body">
+            <div class="kicker">Library operations · 2026</div>
+            <h3>LibraryMS</h3>
+            <p>A role-based library management system with catalog, issue and return, overdue fines and organization branding.</p>
+            <ul>
+              <li>Admin, librarian and member roles</li>
+              <li>Loan periods, overdue warnings and fines</li>
+              <li>Self-registration and profile management</li>
+              <li>SQLite database with ASP.NET Core Identity</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">ASP.NET Core 8 MVC</span><span class="chip">Identity</span><span class="chip">EF Core</span><span class="chip">SQLite</span><span class="chip">Bootstrap 5</span>
+            </div>
+            <div class="print-url">github.com/sulmak/LibraryMS</div>
+            <div class="project-links">
+              <a href="https://github.com/sulmak/LibraryMS" target="_blank" rel="noopener">Repository &#8599;</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <div class="eyebrow">About</div>
+        <h2 style="font-family:var(--serif);font-weight:400;font-size:34px;margin:10px 0 18px;line-height:1.2;">The unglamorous parts are the product</h2>
+        <p>Most business software succeeds or fails on details nobody demos: a balanced journal entry, a leave balance that respects the joining date, a payroll run that handles a mid-month shift change.</p>
+        <p>I work across the whole stack — designing the schema, encoding the rules in the backend, and building the screens that make those rules understandable. My focus is on systems that are correct first and pleasant to use second, because an accounting or payroll tool has no room for “almost right”.</p>
+        <p>When I am not building, I am usually reading about systems design, trading tools or whatever new framework is making noise that week.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-group"><h4>Backend</h4><p>C#, ASP.NET Core 8, EF Core, REST APIs, ASP.NET Core Identity, SQL Server, SQLite</p></div>
+        <div class="skill-group"><h4>Frontend</h4><p>Angular 17/18, TypeScript, HTML, CSS, Bootstrap 5, RxJS</p></div>
+        <div class="skill-group"><h4>Domain</h4><p>Double-entry accounting, HR and payroll, inventory, reporting and PDF/Excel export</p></div>
+        <div class="skill-group"><h4>Tools</h4><p>Git, GitHub, Visual Studio, SSMS, Node.js, npm</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Have a system that needs building?</h2>
+        <p>I am open to interesting .NET and Angular work — especially business tools with real rules.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:sulmak.mridha@gmail.com">sulmak.mridha@gmail.com</a>
+        <a class="btn btn-ghost" href="https://github.com/sulmak" target="_blank" rel="noopener">github.com/sulmak &#8599;</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Md. Atikur Rahman Mridha</span>
+    <span>Designed &amp; built by Md. Atikur Rahman Mridha</span>
+  </div>
+</footer>
+
+</body>
+</html>
